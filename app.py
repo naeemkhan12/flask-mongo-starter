@@ -3,9 +3,11 @@ A basic starter app  with the Flask framework and PyMongo
 """
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 from flask_pymongo import PyMongo
-
+import os
 
 app = Flask(__name__)
+app.config['MONGO_HOST']=os.environ['MONGODB_HOST']
+app.config['MONGO_PORT']=os.environ['MONGODB_PORT']
 app.config['MONGO_DBNAME']="lsdda"
 
 # connect to MongoDB with the defaults
